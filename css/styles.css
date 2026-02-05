@@ -8,7 +8,7 @@ body {
     height: 100vh;
     font-family: "VT323", sans-serif;
     overflow: hidden;
-    color: #f5f5f5;
+    color: #2a2a3b;
 }
 
 /* BACKGROUND VIDEO */
@@ -83,6 +83,7 @@ button:hover {
 .center-text h1 {
     font-family: "VT323", monospace;
     font-size: 72px;
+    color: #1f1f33;
     text-transform: lowercase;
     letter-spacing: 6px;
 }
