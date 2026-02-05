@@ -1,3 +1,4 @@
+/* RESET & CURSOR */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,10 +8,9 @@
 
 body {
     height: 100vh;
-    font-family: "VT323", sans-serif;
+    font-family: "VT323", monospace;
     overflow: hidden;
     color: #ffffff;
-    
 }
 
 /* BACKGROUND VIDEO */
@@ -23,12 +23,12 @@ body {
     z-index: -2;
 }
 
-/* DARK OVERLAY */
+/* OVERLAY GRADIENT */
 body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: #7d6eb8;
+    background: linear-gradient(to bottom, rgba(125,110,184,0.6), rgba(0,0,0,0.6));
     z-index: -1;
 }
 
@@ -39,7 +39,7 @@ body::after {
     position: relative;
 }
 
-/* TOP BAR */
+/* TOP & BOTTOM */
 .top-left {
     position: absolute;
     top: 24px;
@@ -54,32 +54,27 @@ body::after {
     left: 24px;
 }
 
+/* BUTTON STYLES */
 button {
     font-family: "VT323", monospace;
     font-size: 20px;
     letter-spacing: 2px;
     text-transform: lowercase;
-
     background: #f6c1d1;           /* pale pink */
-    color: #2b1b2f;                /* deep purple text */
-
+    color: #2b1b2f;                /* deep purple */
     border: none;
     padding: 12px 22px;
     border-radius: 14px;
-
     cursor: pointer;
-
     box-shadow: 0 6px 0 #3a1e4f;   /* dark purple base */
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
 }
+
 .icon-btn {
     width: 42px;
     height: 42px;
     padding: 0;
-
     font-size: 20px;
-    line-height: 1;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,18 +96,18 @@ button:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    max-width: 90vw;
 }
 
 .center-text h1 {
-    font-family: "VT323", monospace;
     font-size: 72px;
     color: #ffffff;
     text-transform: lowercase;
     letter-spacing: 6px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 }
 
 .center-text p {
-    font-family: "VT323", monospace;
     font-size: 20px;
     opacity: 0.8;
     margin-top: 8px;
@@ -142,24 +137,42 @@ button:hover {
     opacity: 0.9;
 }
 
+#close-about:hover {
+    background: #f9cada;
+}
+
 .hidden {
     display: none;
 }
+
+/* TITLE & CARET */
 .title {
-    font-family: 'VT323', monospace;
     font-size: 64px;
     letter-spacing: 2px;
 }
 
-/* Blinking caret */
 .caret {
     display: inline-block;
     margin-left: 6px;
-    animation: blink 1s steps(1) infinite;
+    animation: blink 0.7s steps(1) infinite;
 }
 
 @keyframes blink {
     50% {
         opacity: 0;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .center-text h1 {
+        font-size: 48px;
+    }
+    .center-text p {
+        font-size: 16px;
+    }
+    button {
+        font-size: 16px;
+        padding: 10px 16px;
     }
 }
