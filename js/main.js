@@ -13,7 +13,7 @@ const typedText = document.getElementById("typed-text");
 
 
 const videos = [
-    "assets/videos/cafe.mp4",
+    "assets/videos/sunset.mp4",
     "assets/videos/rain.mp4",
     "assets/videos/city.mp4"
 ];
