@@ -5,7 +5,6 @@
     <title>afterhours</title>
 
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -18,33 +17,25 @@
     <!-- Overlay UI -->
     <div class="overlay">
 
-    <!-- Top left icons -->
-    <div class="top-left">
-        <button id="about-btn" class="icon-btn">♥</button>
-        <button id="rain-toggle" class="icon-btn">☁</button>
-    </div>
+        <!-- Top left icons -->
+        <div class="top-left">
+            <button id="about-btn" class="icon-btn">♥</button>
+            <button id="rain-toggle" class="icon-btn">☁</button>
+        </div>
 
-    <!-- Center title -->
-    <div class="center-text">
-        <h1 class="title">
-            <span id="typed-text"></span><span class="caret">█</span>
-        </h1>
-        <p>a quiet place on the internet</p>
-    </div>
-
-    <!-- Bottom left -->
-    <div class="bottom-left">
-        <button id="change-bg">change vibe</button>
-    </div>
-
-</div>
-
+        <!-- Center title -->
         <div class="center-text">
             <h1 class="title">
                 <span id="typed-text"></span><span class="caret">█</span>
             </h1>
             <p>a quiet place on the internet</p>
         </div>
+
+        <!-- Bottom left -->
+        <div class="bottom-left">
+            <button id="change-bg">change vibe</button>
+        </div>
+
     </div>
 
     <!-- About Modal -->
@@ -58,9 +49,12 @@
             <button id="close-about">close</button>
         </div>
     </div>
+
+    <!-- Rain audio -->
     <audio id="rain-audio" src="assets/sounds/rain.mp3" loop></audio>
+
+    <!-- JS -->
     <script src="js/main.js"></script>
     
 </body>
 </html>
-
