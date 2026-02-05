@@ -44,25 +44,31 @@ body::after {
 }
 
 button {
-     font-family: "VT323", monospace;
+    font-family: "VT323", monospace;
     font-size: 20px;
     letter-spacing: 2px;
     text-transform: lowercase;
 
-    background: rgba(255, 255, 255, 0.15);
+    background: #f6c1d1;           /* pale pink */
+    color: #2b1b2f;                /* deep purple text */
+
     border: none;
-    padding: 10px 18px;
-    border-radius: 18px;
-    color: white;
+    padding: 12px 22px;
+    border-radius: 14px;
+
     cursor: pointer;
-    backdrop-filter: blur(6px);
-    transition: background 0.2s ease, transform 0.15s ease;
+
+    box-shadow: 0 6px 0 #3a1e4f;   /* dark purple base */
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
+
 button:active {
-    transform: translateY(2px);
+    transform: translateY(6px);
+    box-shadow: 0 0 0 #3a1e4f;
 }
+
 button:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: #f9cada;
 }
 
 /* CENTER TEXT */
