@@ -23,7 +23,7 @@ body {
     z-index: -2;
 }
 
-/* OVERLAY GRADIENT */
+/* OVERLAY */
 body::after {
     content: "";
     position: fixed;
@@ -32,7 +32,6 @@ body::after {
     z-index: -1;
 }
 
-/* UI LAYER */
 .overlay {
     height: 100%;
     padding: 32px;
@@ -74,16 +73,22 @@ button {
     width: 42px;
     height: 42px;
     padding: 0;
-    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .icon-btn img {
     width: 24px;
     height: 24px;
-    display: block;
-    pointer-events: none; 
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.icon-btn .btn-label {
+    margin-left: 6px;
+    font-size: 14px;
+    vertical-align: middle;
 }
 
 button:active {
@@ -164,21 +169,12 @@ button:hover {
 }
 
 @keyframes blink {
-    50% {
-        opacity: 0;
-    }
+    50% { opacity: 0; }
 }
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
-    .center-text h1 {
-        font-size: 48px;
-    }
-    .center-text p {
-        font-size: 16px;
-    }
-    button {
-        font-size: 16px;
-        padding: 10px 16px;
-    }
+    .center-text h1 { font-size: 48px; }
+    .center-text p { font-size: 16px; }
+    button { font-size: 16px; padding: 10px 16px; }
 }
