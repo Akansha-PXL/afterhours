@@ -1,50 +1,51 @@
 "use strict";
 
+// =====================
+// DOM ELEMENTS
+// =====================
 const video = document.getElementById("bg-video");
 const changeBtn = document.getElementById("change-bg");
 const aboutBtn = document.getElementById("about-btn");
 const closeAbout = document.getElementById("close-about");
 const modal = document.getElementById("about-modal");
+const rainBtn = document.getElementById("rain-toggle");
+const rainAudio = document.getElementById("rain-audio");
+const typedText = document.getElementById("typed-text");
 
+// =====================
+// VIDEO BACKGROUNDS
+// =====================
 const videos = [
     "assets/videos/cafe.mp4",
     "assets/videos/rain.mp4",
     "assets/videos/city.mp4"
 ];
 
-let current = 0;
+let currentVideo = 0;
 
-// Change background video
 changeBtn.addEventListener("click", () => {
-    current = (current + 1) % videos.length;
-    video.src = videos[current];
+    currentVideo = (currentVideo + 1) % videos.length;
+    video.src = videos[currentVideo];
     video.play();
 });
 
-// About modal
-aboutBtn.addEventListener("click", () => {
-    modal.classList.remove("hidden");
-});
+// =====================
+// ABOUT MODAL
+// =====================
+aboutBtn.addEventListener("click", () => modal.classList.remove("hidden"));
+closeAbout.addEventListener("click", () => modal.classList.add("hidden"));
 
-closeAbout.addEventListener("click", () => {
-    modal.classList.add("hidden");
-});
-const rainBtn = document.getElementById("rain-toggle");
-const rainAudio = document.getElementById("rain-audio");
-
-console.log("rain button:", rainBtn);
-console.log("rain audio:", rainAudio);
-
+// =====================
+// RAIN AUDIO TOGGLE
+// =====================
 let raining = false;
 
 rainBtn.addEventListener("click", () => {
-    console.log("rain button clicked");
-
     if (!raining) {
         rainAudio.volume = 0.4;
         rainAudio.currentTime = 0;
         rainAudio.muted = false;
-        rainAudio.play().catch(err => console.log(err));
+        rainAudio.play().catch(err => console.log("Audio play error:", err));
         rainBtn.textContent = "rain: on";
     } else {
         rainAudio.pause();
@@ -53,19 +54,20 @@ rainBtn.addEventListener("click", () => {
 
     raining = !raining;
 });
-const text = "afterhours";
-const typedText = document.getElementById("typed-text");
 
-let index = 0;
+// =====================
+// TYPING EFFECT
+// =====================
+const text = "afterhours";
+let charIndex = 0;
 
 function typeEffect() {
-    if (index < text.length) {
-        typedText.textContent += text.charAt(index);
-        index++;
+    if (charIndex < text.length) {
+        typedText.textContent += text.charAt(charIndex);
+        charIndex++;
         setTimeout(typeEffect, 200);
     }
 }
 
+// Start typing effect
 typeEffect();
-
-
