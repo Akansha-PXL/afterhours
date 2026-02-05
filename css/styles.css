@@ -72,6 +72,18 @@ button {
     box-shadow: 0 6px 0 #3a1e4f;   /* dark purple base */
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
+.icon-btn {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+
+    font-size: 20px;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 button:active {
     transform: translateY(6px);
