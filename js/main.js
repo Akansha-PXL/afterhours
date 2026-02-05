@@ -1,8 +1,6 @@
 "use strict";
 
-// =====================
-// DOM ELEMENTS
-// =====================
+
 const video = document.getElementById("bg-video");
 const changeBtn = document.getElementById("change-bg");
 const aboutBtn = document.getElementById("about-btn");
@@ -13,9 +11,7 @@ const rainAudio = document.getElementById("rain-audio");
 const rainLabel = rainBtn.querySelector(".btn-label");
 const typedText = document.getElementById("typed-text");
 
-// =====================
-// VIDEO BACKGROUNDS
-// =====================
+
 const videos = [
     "assets/videos/cafe.mp4",
     "assets/videos/rain.mp4",
@@ -30,15 +26,11 @@ changeBtn.addEventListener("click", () => {
     video.play();
 });
 
-// =====================
-// ABOUT MODAL
-// =====================
+
 aboutBtn.addEventListener("click", () => modal.classList.remove("hidden"));
 closeAbout.addEventListener("click", () => modal.classList.add("hidden"));
 
-// =====================
-// RAIN AUDIO TOGGLE
-// =====================
+
 let raining = false;
 
 rainBtn.addEventListener("click", () => {
@@ -47,17 +39,14 @@ rainBtn.addEventListener("click", () => {
         rainAudio.currentTime = 0;
         rainAudio.muted = false;
         rainAudio.play().catch(err => console.log(err));
-        rainLabel.textContent = "rain: on";
     } else {
         rainAudio.pause();
-        rainLabel.textContent = "rain: off";
     }
     raining = !raining;
 });
 
-// =====================
-// TYPING EFFECT
-// =====================
+
+
 const text = "afterhours";
 let charIndex = 0;
 
