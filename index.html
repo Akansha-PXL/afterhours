@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>afterhours</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="assets/videos/cafe.mp4" type="video/mp4">
+    </video>
+
+    <!-- Overlay UI -->
+    <div class="overlay">
+        <div class="top-bar">
+            <button id="change-bg">Change vibe</button>
+            <button id="about-btn">About</button>
+        </div>
+
+        <div class="center-text">
+            <h1>chill room</h1>
+            <p>a quiet place on the internet</p>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div id="about-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>About</h2>
+            <p>
+                This is a calm, ad-free space for music, focus, and creativity.
+                No pressure. No noise. Just vibes.
+            </p>
+            <button id="close-about">close</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
 
