@@ -10,6 +10,7 @@ const closeAbout = document.getElementById("close-about");
 const modal = document.getElementById("about-modal");
 const rainBtn = document.getElementById("rain-toggle");
 const rainAudio = document.getElementById("rain-audio");
+const rainLabel = rainBtn.querySelector(".btn-label");
 const typedText = document.getElementById("typed-text");
 
 // =====================
@@ -38,10 +39,6 @@ closeAbout.addEventListener("click", () => modal.classList.add("hidden"));
 // =====================
 // RAIN AUDIO TOGGLE
 // =====================
-const rainBtn = document.getElementById("rain-toggle");
-const rainAudio = document.getElementById("rain-audio");
-const rainLabel = rainBtn.querySelector(".btn-label");
-
 let raining = false;
 
 rainBtn.addEventListener("click", () => {
@@ -55,7 +52,6 @@ rainBtn.addEventListener("click", () => {
         rainAudio.pause();
         rainLabel.textContent = "rain: off";
     }
-
     raining = !raining;
 });
 
@@ -73,5 +69,4 @@ function typeEffect() {
     }
 }
 
-// Start typing effect
 typeEffect();
