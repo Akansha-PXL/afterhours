@@ -9,6 +9,7 @@ body {
     font-family: "VT323", sans-serif;
     overflow: hidden;
     color: #ffffff;
+    cursor: url("../assets/cursor/pixel-cursor.png") 8 8, auto;
 }
 
 /* BACKGROUND VIDEO */
@@ -122,4 +123,21 @@ button:hover {
 .hidden {
     display: none;
 }
+.title {
+    font-family: 'VT323', monospace;
+    font-size: 64px;
+    letter-spacing: 2px;
+}
 
+/* Blinking caret */
+.caret {
+    display: inline-block;
+    margin-left: 6px;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
