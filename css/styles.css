@@ -40,9 +40,18 @@ body::after {
 }
 
 /* TOP BAR */
-.top-bar {
+.top-left {
+    position: absolute;
+    top: 24px;
+    left: 24px;
     display: flex;
-    justify-content: space-between;
+    gap: 12px;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
 }
 
 button {
