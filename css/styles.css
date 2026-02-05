@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    cursor: url("../assets/images/pixel-cursor.png") 8 8, auto;
 }
 
 body {
@@ -9,7 +10,7 @@ body {
     font-family: "VT323", sans-serif;
     overflow: hidden;
     color: #ffffff;
-    cursor: url("../assets/cursor/pixel-cursor.png") 8 8, auto;
+    
 }
 
 /* BACKGROUND VIDEO */
