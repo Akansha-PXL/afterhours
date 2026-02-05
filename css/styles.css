@@ -26,7 +26,7 @@ body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: #322173;
+    background: #7d6eb8;
     z-index: -1;
 }
 
