@@ -38,6 +38,10 @@ closeAbout.addEventListener("click", () => modal.classList.add("hidden"));
 // =====================
 // RAIN AUDIO TOGGLE
 // =====================
+const rainBtn = document.getElementById("rain-toggle");
+const rainAudio = document.getElementById("rain-audio");
+const rainLabel = rainBtn.querySelector(".btn-label");
+
 let raining = false;
 
 rainBtn.addEventListener("click", () => {
@@ -45,11 +49,11 @@ rainBtn.addEventListener("click", () => {
         rainAudio.volume = 0.4;
         rainAudio.currentTime = 0;
         rainAudio.muted = false;
-        rainAudio.play().catch(err => console.log("Audio play error:", err));
-        rainBtn.textContent = "rain: on";
+        rainAudio.play().catch(err => console.log(err));
+        rainLabel.textContent = "rain: on";
     } else {
         rainAudio.pause();
-        rainBtn.textContent = "rain: off";
+        rainLabel.textContent = "rain: off";
     }
 
     raining = !raining;
