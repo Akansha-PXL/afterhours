@@ -32,9 +32,14 @@ closeAbout.addEventListener("click", () => {
 const rainBtn = document.getElementById("rain-toggle");
 const rainAudio = document.getElementById("rain-audio");
 
+console.log("rain button:", rainBtn);
+console.log("rain audio:", rainAudio);
+
 let raining = false;
 
 rainBtn.addEventListener("click", () => {
+    console.log("rain button clicked");
+
     if (!raining) {
         rainAudio.volume = 0.4;
         rainAudio.play();
@@ -43,7 +48,7 @@ rainBtn.addEventListener("click", () => {
         rainAudio.pause();
         rainBtn.textContent = "rain: off";
     }
+
     raining = !raining;
 });
-
 
