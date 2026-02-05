@@ -29,4 +29,21 @@ aboutBtn.addEventListener("click", () => {
 closeAbout.addEventListener("click", () => {
     modal.classList.add("hidden");
 });
+const rainBtn = document.getElementById("rain-toggle");
+const rainAudio = document.getElementById("rain-audio");
+
+let raining = false;
+
+rainBtn.addEventListener("click", () => {
+    if (!raining) {
+        rainAudio.volume = 0.4;
+        rainAudio.play();
+        rainBtn.textContent = "rain: on";
+    } else {
+        rainAudio.pause();
+        rainBtn.textContent = "rain: off";
+    }
+    raining = !raining;
+});
+
 
