@@ -79,6 +79,12 @@ button {
     align-items: center;
     justify-content: center;
 }
+.icon-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    pointer-events: none; 
+}
 
 button:active {
     transform: translateY(6px);
