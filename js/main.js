@@ -53,4 +53,19 @@ rainBtn.addEventListener("click", () => {
 
     raining = !raining;
 });
+const text = "afterhours";
+const typedText = document.getElementById("typed-text");
+
+let index = 0;
+
+function typeEffect() {
+    if (index < text.length) {
+        typedText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 200);
+    }
+}
+
+typeEffect();
+
 
