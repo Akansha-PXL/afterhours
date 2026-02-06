@@ -35,7 +35,7 @@ let raining = false;
 
 rainBtn.addEventListener("click", () => {
     if (!raining) {
-        rainAudio.volume = 0.6;
+        rainAudio.volume = 0.8;
         rainAudio.currentTime = 0;
         rainAudio.muted = false;
         rainAudio.play().catch(err => console.log(err));
