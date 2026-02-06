@@ -10,6 +10,10 @@ const rainBtn = document.getElementById("rain-toggle");
 const rainAudio = document.getElementById("rain-audio");
 const rainLabel = rainBtn.querySelector(".btn-label");
 const typedText = document.getElementById("typed-text");
+const typingBtn = document.getElementById("typing-toggle");
+const cafeBtn = document.getElementById("cafe-toggle");
+const typingAudio = document.getElementById("typing-audio");
+const cafeAudio = document.getElementById("cafe-audio");
 
 
 const videos = [
@@ -45,6 +49,30 @@ rainBtn.addEventListener("click", () => {
     raining = !raining;
 });
 
+let typingOn = false;
+typingBtn.addEventListener("click", () => {
+    if (!typingOn) {
+        typingAudio.volume = 0.25;
+        typingAudio.currentTime = 0;
+        typingAudio.play().catch(() => {});
+    } else {
+        typingAudio.pause();
+    }
+    typingOn = !typingOn;
+});
+
+
+let cafeOn = false;
+cafeBtn.addEventListener("click", () => {
+    if (!cafeOn) {
+        cafeAudio.volume = 0.35;
+        cafeAudio.currentTime = 0;
+        cafeAudio.play().catch(() => {});
+    } else {
+        cafeAudio.pause();
+    }
+    cafeOn = !cafeOn;
+});
 
 
 const text = "afterhours";
