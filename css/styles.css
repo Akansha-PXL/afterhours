@@ -98,6 +98,7 @@ button:active {
 
 button:hover {
     background: #f9cada;
+     cursor: url("../assets/images/pixel-cursor.png") 8 8, auto !important;
 }
 
 /* CENTER TEXT */
