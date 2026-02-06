@@ -52,9 +52,9 @@ rainBtn.addEventListener("click", () => {
 let typingOn = false;
 typingBtn.addEventListener("click", () => {
     if (!typingOn) {
-        typingAudio.volume = 0.25;
+        typingAudio.volume = 0.5;
         typingAudio.currentTime = 0;
-        typingAudio.play().catch(() => {});
+        typingAudio.play().catch(err => console.log(err));
     } else {
         typingAudio.pause();
     }
@@ -65,9 +65,9 @@ typingBtn.addEventListener("click", () => {
 let cafeOn = false;
 cafeBtn.addEventListener("click", () => {
     if (!cafeOn) {
-        cafeAudio.volume = 0.35;
+        cafeAudio.volume = 0.5;
         cafeAudio.currentTime = 0;
-        cafeAudio.play().catch(() => {});
+        cafeAudio.play().catch(err => console.log(err));
     } else {
         cafeAudio.pause();
     }
