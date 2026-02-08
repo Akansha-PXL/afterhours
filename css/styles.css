@@ -8,7 +8,7 @@
 
 body {
     height: 100vh;
-    font-family: "VT323", monospace;
+    font-family: "Tiny5", monospace;
     overflow: hidden;
     color: #fff;
 }
@@ -49,7 +49,7 @@ body::after {
 
 /* BUTTONS */
 button {
-    font-family: "VT323", monospace;
+    font-family: "Tiny5", monospace;
     font-size: 20px;
     letter-spacing: 2px;
     text-transform: lowercase;
