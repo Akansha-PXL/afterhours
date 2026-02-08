@@ -1,4 +1,4 @@
-/* RESET & CURSOR */
+/* RESET */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -10,10 +10,10 @@ body {
     height: 100vh;
     font-family: "VT323", monospace;
     overflow: hidden;
-    color: #ffffff;
+    color: #fff;
 }
 
-/* BACKGROUND VIDEO */
+/* BACKGROUND */
 #bg-video {
     position: fixed;
     inset: 0;
@@ -23,7 +23,6 @@ body {
     z-index: -1;
 }
 
-/* OVERLAY */
 body::after {
     content: "";
     position: fixed;
@@ -32,13 +31,14 @@ body::after {
     z-index: -2;
 }
 
+/* OVERLAY */
 .overlay {
     height: 100%;
     padding: 32px;
     position: relative;
 }
 
-/* TOP & BOTTOM */
+/* TOP LEFT */
 .top-left {
     position: absolute;
     top: 24px;
@@ -47,26 +47,28 @@ body::after {
     gap: 12px;
 }
 
-.bottom-left {
-    position: absolute;
-    bottom: 24px;
-    left: 24px;
-}
-
-/* BUTTON STYLES */
+/* BUTTONS */
 button {
     font-family: "VT323", monospace;
     font-size: 20px;
     letter-spacing: 2px;
     text-transform: lowercase;
-    background: #f6c1d1;           /* pale pink */
-    color: #2b1b2f;                /* deep purple */
+    background: #f6c1d1;
+    color: #2b1b2f;
     border: none;
     padding: 12px 22px;
     border-radius: 14px;
-    cursor: pointer;
-    box-shadow: 0 6px 0 #3a1e4f;   /* dark purple base */
-    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+    box-shadow: 0 6px 0 #3a1e4f;
+    transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+}
+
+button:hover {
+    background: #f9cada;
+}
+
+button:active {
+    transform: translateY(6px);
+    box-shadow: 0 0 0 #3a1e4f;
 }
 
 .icon-btn {
@@ -81,40 +83,20 @@ button {
 .icon-btn img {
     width: 24px;
     height: 24px;
-    object-fit: contain;
     pointer-events: none;
 }
 
-.icon-btn .btn-label {
-    margin-left: 6px;
-    font-size: 14px;
-    vertical-align: middle;
-}
-
-button:active {
-    transform: translateY(6px);
-    box-shadow: 0 0 0 #3a1e4f;
-}
-
-button:hover {
-    background: #f9cada;
-     cursor: url("../assets/images/pixel-cursor.png") 8 8, auto !important;
-}
-
-/* CENTER TEXT */
+/* CENTER */
 .center-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    max-width: 90vw;
 }
 
 .center-text h1 {
     font-size: 72px;
-    color: #ffffff;
-    text-transform: lowercase;
     letter-spacing: 6px;
     text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 }
@@ -122,51 +104,10 @@ button:hover {
 .center-text p {
     font-size: 20px;
     opacity: 0.8;
-    color: #ffffff;
-    margin-top: 8px;
 }
 
-/* MODAL */
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background: rgba(30, 30, 30, 0.9);
-    padding: 32px;
-    border-radius: 16px;
-    width: 300px;
-    text-align: center;
-}
-
-.modal-content p {
-    margin: 16px 0;
-    font-size: 14px;
-    opacity: 0.9;
-}
-
-#close-about:hover {
-    background: #f9cada;
-}
-
-.hidden {
-    display: none;
-}
-
-/* TITLE & CARET */
-.title {
-    font-size: 64px;
-    letter-spacing: 2px;
-}
-
+/* CARET */
 .caret {
-    display: inline-block;
-    margin-left: 6px;
     animation: blink 0.7s steps(1) infinite;
 }
 
@@ -174,30 +115,23 @@ button:hover {
     50% { opacity: 0; }
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .center-text h1 { font-size: 48px; }
-    .center-text p { font-size: 16px; }
-    button { font-size: 16px; padding: 10px 16px; }
-}
+/* RADIO */
 .radio {
     position: absolute;
     bottom: 24px;
     right: 24px;
     width: 260px;
-    background: rgba(20, 20, 20, 0.9);
+    background: rgba(20,20,20,0.9);
     border-radius: 16px;
     box-shadow: 0 8px 0 #3a1e4f;
-    font-size: 14px;
 }
 
 .radio-header {
+    background: #2b1b2f;
     padding: 12px;
     text-align: center;
     letter-spacing: 2px;
-    background: #2b1b2f;
     border-radius: 16px 16px 0 0;
-    text-transform: lowercase;
 }
 
 .radio-body {
@@ -208,7 +142,6 @@ button:hover {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    opacity: 0.9;
 }
 
 .radio-line .label {
@@ -224,5 +157,26 @@ button:hover {
 .radio-controls button {
     width: 48%;
     padding: 8px 0;
-    font-size: 16px;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: rgba(30,30,30,0.9);
+    padding: 32px;
+    border-radius: 16px;
+    width: 300px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
 }
