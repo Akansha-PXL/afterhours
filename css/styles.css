@@ -180,3 +180,50 @@ button:active {
 .hidden {
     display: none;
 }
+/* CAT TOGGLE BUTTON */
+#cat-toggle {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    background: none;
+    box-shadow: 0 6px 0 #3a1e4f;
+    border-radius: 50%;
+}
+
+#cat-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* CAT CONTAINER */
+#cat-container {
+    position: absolute;
+    bottom: 80px;  /* sits on top of radio */
+    left: 24px;    /* same x as radio so aligned */
+    width: 64px;
+    height: 64px;
+    z-index: 10;
+}
+
+/* CAT IMAGE */
+#cat-container #cat {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* HEART POP */
+#cat-container #cat-heart {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
