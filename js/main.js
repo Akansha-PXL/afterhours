@@ -84,3 +84,64 @@ typeEffect();
 
 /* INIT */
 applyVibe(vibes[currentVibe]);
+// ========================
+// AFTERHOURS WINDOW CAT
+// ========================
+
+const catToggleBtn = document.getElementById("cat-toggle");
+const catContainer = document.getElementById("cat-container");
+const cat = document.getElementById("cat");
+const catHeart = document.getElementById("cat-heart");
+
+let catVisible = false;
+let catState = "idle"; // "idle" | "sleeping" | "happy"
+let lastInteraction = Date.now();
+const sleepDelay = 12000; // 12 seconds
+
+// --- Toggle cat on/off ---
+catToggleBtn.addEventListener("click", () => {
+    catVisible = !catVisible;
+    if (catVisible) {
+        catContainer.classList.remove("hidden");
+        lastInteraction = Date.now();
+        catState = "idle";
+        cat.src = "assets/images/cat-idle.png";
+    } else {
+        catContainer.classList.add("hidden");
+    }
+});
+
+// --- Click cat ---
+cat.addEventListener("click", () => {
+    lastInteraction = Date.now();
+
+    if (catState === "sleeping") {
+        // Wake up
+        catState = "idle";
+        cat.src = "assets/images/cat-idle.png";
+    }
+
+    // Show heart pop
+    catHeart.classList.remove("hidden");
+    setTimeout(() => {
+        catHeart.classList.add("hidden");
+    }, 800);
+
+    // Optional: small happy animation
+    catState = "happy";
+    setTimeout(() => {
+        if (catState === "happy") catState = "idle"; // return to idle after animation
+    }, 800);
+});
+
+// --- Idle timer to sleep ---
+setInterval(() => {
+    if (!catVisible) return; // do nothing if cat is hidden
+
+    const now = Date.now();
+    if (catState !== "sleeping" && now - lastInteraction > sleepDelay) {
+        catState = "sleeping";
+        cat.src = "assets/images/cat-sleep.png";
+    }
+}, 1000);
+
