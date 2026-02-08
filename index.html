@@ -10,63 +10,59 @@
 <body>
 
     <!-- Background Video -->
-    <video id="bg-video" autoplay muted loop playsinline>
-        <source src="assets/videos/sunset.mp4" type="video/mp4">
-    </video>
+    <video id="bg-video" autoplay muted loop playsinline></video>
 
     <!-- Overlay UI -->
     <div class="overlay">
 
-        <!-- Top left icons -->
+        <!-- Top Left Controls -->
         <div class="top-left">
             <button id="about-btn" class="icon-btn">
-               <img src="assets/images/heart.png" alt="About" />
+                <img src="assets/images/heart.png" alt="About">
             </button>
 
             <button id="rain-toggle" class="icon-btn">
-               <img src="assets/images/cloud.png" alt="Rain Toggle" />
-               
+                <img src="assets/images/cloud.png" alt="Rain">
             </button>
-            
+
             <button id="typing-toggle" class="icon-btn">
-               <img src="assets/images/keyboard.png" alt="Typing sounds" />
+                <img src="assets/images/keyboard.png" alt="Typing">
             </button>
 
             <button id="cafe-toggle" class="icon-btn">
-               <img src="assets/images/cafe.png" alt="Cafe ambience" />
+                <img src="assets/images/cafe.png" alt="Cafe">
             </button>
-            
         </div>
 
-        <!-- Center title -->
+        <!-- Center Title -->
         <div class="center-text">
             <h1 class="title">
                 <span id="typed-text"></span><span class="caret">█</span>
             </h1>
-            <p>SIGNAL ONLINE</p>
+            <p>signal online</p>
         </div>
 
-        <!-- Bottom left -->
+        <!-- Radio -->
         <div class="radio">
-    <div class="radio-header">afterhours fm</div>
+            <div class="radio-header">afterhours fm</div>
 
-    <div class="radio-body">
-        <div class="radio-line">
-            <span class="label">station</span>
-            <span id="station-name">sunsetz</span>
-        </div>
+            <div class="radio-body">
+                <div class="radio-line">
+                    <span class="label">station</span>
+                    <span id="station-name">sunset</span>
+                </div>
 
-        <div class="radio-line">
-            <span class="label">now playing</span>
-            <span id="now-playing">placeholder</span>
-        </div>
+                <div class="radio-line">
+                    <span class="label">now playing</span>
+                    <span id="now-playing">lofi • placeholder</span>
+                </div>
 
-        <div class="radio-controls">
-            <button id="play-pause">▶︎</button>
-            <button id="next-station">⏭</button>
+                <div class="radio-controls">
+                    <button id="play-pause">▶︎</button>
+                    <button id="next-station">⏭</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
     </div>
 
@@ -74,21 +70,16 @@
     <div id="about-modal" class="modal hidden">
         <div class="modal-content">
             <h2>About</h2>
-            <p>
-                A place for music and pixels.
-                Made by Akansha ★
-            </p>
+            <p>A place for music and pixels.<br>Made by Akansha ★</p>
             <button id="close-about">close</button>
         </div>
     </div>
 
-    <!-- Rain audio -->
+    <!-- Audio -->
     <audio id="rain-audio" src="assets/sounds/rain.mp3" loop></audio>
     <audio id="typing-audio" src="assets/sounds/typing.mp3" loop></audio>
     <audio id="cafe-audio" src="assets/sounds/cafe.mp3" loop></audio>
 
-    <!-- JS -->
     <script src="js/main.js"></script>
-    
 </body>
 </html>
