@@ -16,18 +16,38 @@ const typingAudio = document.getElementById("typing-audio");
 const cafeAudio = document.getElementById("cafe-audio");
 
 
-const videos = [
-    "assets/videos/sunset.mp4",
-    "assets/videos/rain.mp4",
-    "assets/videos/city.mp4"
+const vibes = [
+    {
+        name: "sunset",
+        video: "assets/videos/sunset.mp4",
+        playlist: "placeholder-1"
+    },
+    {
+        name: "rainy city",
+        video: "assets/videos/rain.mp4",
+        playlist: "placeholder-2"
+    },
+    {
+        name: "night drive",
+        video: "assets/videos/city.mp4",
+        playlist: "placeholder-3"
+    }
 ];
 
-let currentVideo = 0;
+let currentVibe = 0;
+
+function applyVibe(vibe) {
+    video.src = vibe.video;
+    video.play();
+
+    // placeholder for future music logic
+    console.log("Current playlist:", vibe.playlist);
+}
+
 
 changeBtn.addEventListener("click", () => {
-    currentVideo = (currentVideo + 1) % videos.length;
-    video.src = videos[currentVideo];
-    video.play();
+    currentVibe = (currentVibe + 1) % vibes.length;
+    applyVibe(vibes[currentVibe]);
 });
 
 
@@ -87,3 +107,5 @@ function typeEffect() {
 }
 
 typeEffect();
+
+applyVibe(vibes[currentVibe]);
