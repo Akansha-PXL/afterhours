@@ -194,6 +194,10 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;   /* so it stays on screen even when scrolling */
+    bottom: 20px;      /* distance from bottom */
+    right: 20px;       /* distance from right */
+    z-index: 1000;     /* makes sure it’s on top of other elements */
 }
 
 #cat-toggle img {
