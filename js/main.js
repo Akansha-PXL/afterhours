@@ -1,116 +1,86 @@
 "use strict";
 
-
+/* ELEMENTS */
 const video = document.getElementById("bg-video");
-const changeBtn = document.getElementById("change-bg");
+
 const aboutBtn = document.getElementById("about-btn");
 const closeAbout = document.getElementById("close-about");
 const modal = document.getElementById("about-modal");
+
 const rainBtn = document.getElementById("rain-toggle");
-const rainAudio = document.getElementById("rain-audio");
-const rainLabel = rainBtn.querySelector(".btn-label");
-const typedText = document.getElementById("typed-text");
 const typingBtn = document.getElementById("typing-toggle");
 const cafeBtn = document.getElementById("cafe-toggle");
+
+const rainAudio = document.getElementById("rain-audio");
 const typingAudio = document.getElementById("typing-audio");
 const cafeAudio = document.getElementById("cafe-audio");
+
 const stationName = document.getElementById("station-name");
 const nowPlaying = document.getElementById("now-playing");
 const nextStationBtn = document.getElementById("next-station");
 
+const typedText = document.getElementById("typed-text");
 
+/* VIBES */
 const vibes = [
-    {
-        name: "sunset",
-        video: "assets/videos/sunset.mp4",
-        playlist: "placeholder-1"
-    },
-    {
-        name: "rainy city",
-        video: "assets/videos/rain.mp4",
-        playlist: "placeholder-2"
-    },
-    {
-        name: "night drive",
-        video: "assets/videos/city.mp4",
-        playlist: "placeholder-3"
-    }
+    { name: "sunset", video: "assets/videos/sunset.mp4" },
+    { name: "rainy city", video: "assets/videos/rain.mp4" },
+    { name: "night drive", video: "assets/videos/city.mp4" }
 ];
 
 let currentVibe = 0;
 
 function applyVibe(vibe) {
+    video.pause();
     video.src = vibe.video;
+    video.load();
     video.play();
 
     stationName.textContent = vibe.name;
     nowPlaying.textContent = "lofi • placeholder";
-
-    console.log("Current playlist:", vibe.playlist);
 }
-
 
 nextStationBtn.addEventListener("click", () => {
     currentVibe = (currentVibe + 1) % vibes.length;
     applyVibe(vibes[currentVibe]);
 });
 
-
+/* MODAL */
 aboutBtn.addEventListener("click", () => modal.classList.remove("hidden"));
 closeAbout.addEventListener("click", () => modal.classList.add("hidden"));
 
-
-let raining = false;
-
-rainBtn.addEventListener("click", () => {
-    if (!raining) {
-        rainAudio.volume = 0.7;
-        rainAudio.currentTime = 0;
-        rainAudio.muted = false;
-        rainAudio.play().catch(err => console.log(err));
+/* AMBIENT AUDIO */
+function toggleAudio(audio, state) {
+    if (!state.on) {
+        audio.volume = 0.7;
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
     } else {
-        rainAudio.pause();
+        audio.pause();
     }
-    raining = !raining;
-});
+    state.on = !state.on;
+}
 
-let typingOn = false;
-typingBtn.addEventListener("click", () => {
-    if (!typingOn) {
-        typingAudio.volume = 0.7;
-        typingAudio.currentTime = 0;
-        typingAudio.play().catch(err => console.log(err));
-    } else {
-        typingAudio.pause();
-    }
-    typingOn = !typingOn;
-});
+const rain = { on: false };
+const typing = { on: false };
+const cafe = { on: false };
 
+rainBtn.addEventListener("click", () => toggleAudio(rainAudio, rain));
+typingBtn.addEventListener("click", () => toggleAudio(typingAudio, typing));
+cafeBtn.addEventListener("click", () => toggleAudio(cafeAudio, cafe));
 
-let cafeOn = false;
-cafeBtn.addEventListener("click", () => {
-    if (!cafeOn) {
-        cafeAudio.volume = 0.7;
-        cafeAudio.currentTime = 0;
-        cafeAudio.play().catch(err => console.log(err));
-    } else {
-        cafeAudio.pause();
-    }
-    cafeOn = !cafeOn;
-});
-
-
+/* TITLE TYPE */
 const text = "afterhours";
-let charIndex = 0;
+let index = 0;
 
 function typeEffect() {
-    if (charIndex < text.length) {
-        typedText.textContent += text.charAt(charIndex);
-        charIndex++;
+    if (index < text.length) {
+        typedText.textContent += text[index++];
         setTimeout(typeEffect, 200);
     }
 }
 
 typeEffect();
 
+/* INIT */
 applyVibe(vibes[currentVibe]);
