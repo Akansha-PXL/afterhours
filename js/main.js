@@ -14,6 +14,9 @@ const typingBtn = document.getElementById("typing-toggle");
 const cafeBtn = document.getElementById("cafe-toggle");
 const typingAudio = document.getElementById("typing-audio");
 const cafeAudio = document.getElementById("cafe-audio");
+const stationName = document.getElementById("station-name");
+const nowPlaying = document.getElementById("now-playing");
+const nextStationBtn = document.getElementById("next-station");
 
 
 const vibes = [
@@ -40,12 +43,14 @@ function applyVibe(vibe) {
     video.src = vibe.video;
     video.play();
 
-    // placeholder for future music logic
+    stationName.textContent = vibe.name;
+    nowPlaying.textContent = "lofi • placeholder";
+
     console.log("Current playlist:", vibe.playlist);
 }
 
 
-changeBtn.addEventListener("click", () => {
+nextStationBtn.addEventListener("click", () => {
     currentVibe = (currentVibe + 1) % vibes.length;
     applyVibe(vibes[currentVibe]);
 });
